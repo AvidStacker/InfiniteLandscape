@@ -32,10 +32,24 @@ let prevEdgeHeights = []; // Store the last row's heights
 const noise = new SimplexNoise();
 
 // Reusable material
-const material = new THREE.MeshBasicMaterial({
+const basicMaterial = new THREE.MeshBasicMaterial({
     color: 0xffffff,
     wireframe: true,
 });
+
+const texture = new THREE.TextureLoader().load('water.png');
+const standardMaterial = new THREE.MeshStandardMaterial({
+    map: texture,
+    color: 0xffffff,
+    wireframe: true
+});
+
+const material = standardMaterial;
+
+// Ljuskälla
+const light = new THREE.DirectionalLight(0xffffff, 1);
+light.position.set(10, 10, 10);
+scene.add(light);
 
 // Function to create a terrain chunk at a given z position
 function createChunk(zPosition) {

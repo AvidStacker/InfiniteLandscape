@@ -37,7 +37,7 @@ const basicMaterial = new THREE.MeshBasicMaterial({
     wireframe: true,
 });
 
-const texture = new THREE.TextureLoader().load('water.png');
+const texture = new THREE.TextureLoader().load('textures/water.png');
 const standardMaterial = new THREE.MeshStandardMaterial({
     map: texture,
     color: 0xffffff,
@@ -46,7 +46,7 @@ const standardMaterial = new THREE.MeshStandardMaterial({
 
 const material = standardMaterial;
 
-// Ljuskälla
+// Light source
 const light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(10, 10, 10);
 scene.add(light);
@@ -145,6 +145,8 @@ function animate() {
     renderer.clear();
     renderer.render(scene, activeCamera);
 }
+
+
 
 animate();
 
